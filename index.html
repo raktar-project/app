@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raktar</title>
     <script>
-        // Amplify need this to work. See https://github.com/aws/aws-sdk-js/issues/3673
-        const isBrowser = () => typeof window !== "undefined";
-        const isGlobal = () => typeof global !== "undefined";
-        if (!isGlobal() && isBrowser()) {
-            var global = window;
-        }
+      // Amplify need this to work. See https://github.com/aws/aws-sdk-js/issues/3673
+      const isBrowser = () => typeof window !== "undefined";
+      const isGlobal = () => typeof global !== "undefined";
+      if (!isGlobal() && isBrowser()) {
+        var global = window;
+      }
     </script>
-</head>
-<body>
-<div id="root"></div>
-<script type="module" src="/src/main.tsx"></script>
-</body>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
