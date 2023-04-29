@@ -1,7 +1,6 @@
 import { FC } from "react";
 
 import { Amplify } from "aws-amplify";
-import "./App.css";
 import awsExports from "./aws-exports.ts";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
@@ -16,6 +15,9 @@ import Login from "./components/Login.tsx";
 import AuthCallback from "./components/AuthCallback.tsx";
 import Home from "./components/Home.tsx";
 import { exchange as authExchange } from "./auth";
+import AuthenticatedLayout from "./components/AuthenticatedLayout.tsx";
+import TokenManagement from "./components/TokenManagement.tsx";
+import { CssBaseline } from "@mui/material";
 
 Amplify.configure(awsExports);
 const client = createClient({
@@ -35,12 +37,24 @@ const App: FC = () => {
     },
     {
       path: "/",
-      element: <Home />,
+      element: <AuthenticatedLayout />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/tokens",
+          element: <TokenManagement />,
+        },
+      ],
     },
   ]);
   return (
     <UrqlProvider value={client}>
-      <RouterProvider router={router} />
+      <CssBaseline>
+        <RouterProvider router={router} />
+      </CssBaseline>
     </UrqlProvider>
   );
 };
