@@ -25,3 +25,4 @@ dist-ssr
 
 # We'll re-include this once things are made configurable
 src/aws-exports.ts
+env/.env

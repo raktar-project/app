@@ -1,0 +1,5 @@
+mutation GenerateToken($name: String!) {
+  generateToken(name: $name) {
+    token
+  }
+}

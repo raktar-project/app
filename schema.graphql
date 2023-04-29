@@ -1,0 +1,22 @@
+# This file was generated. Do not edit manually.
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Crate {
+  name: String!
+}
+
+type GeneratedToken {
+  token: String!
+}
+
+type Mutation {
+  generateToken(name: String!): GeneratedToken!
+}
+
+type Query {
+  crates: [Crate!]!
+}
