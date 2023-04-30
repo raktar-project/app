@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, useState } from "react";
-import { Button, LinearProgress, TextField } from "@mui/material";
+import { Box, Button, LinearProgress, TextField, Typography } from "@mui/material";
 import { useMutation } from "urql";
 import { GenerateTokenDocument } from "../generated/graphql.ts";
 
@@ -16,14 +16,24 @@ const TokenGenerator: FC = () => {
   }
 
   return (
-    <div>
+    <Box>
+      <Typography variant="h5">New Token</Typography>
       <TextField
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           setTokenName(event.target.value);
         }}
+        fullWidth
+        size="small"
       />
-      <Button onClick={() => generateToken({ name: tokenName })}>Generate New Token</Button>
-    </div>
+      <Button
+        onClick={() => generateToken({ name: tokenName })}
+        fullWidth
+        variant="outlined"
+        sx={{ marginTop: 2 }}
+      >
+        Generate New Token
+      </Button>
+    </Box>
   );
 };
 

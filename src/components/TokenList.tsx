@@ -2,7 +2,18 @@ import { FC } from "react";
 import { useQuery } from "urql";
 
 import { MyTokensDocument } from "../generated/graphql.ts";
-import { Box, CircularProgress } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 
 const TokenList: FC = () => {
   const [{ data, error, fetching }] = useQuery({ query: MyTokensDocument });
@@ -14,11 +25,27 @@ const TokenList: FC = () => {
   } else if (data) {
     return (
       <Box>
-        <ul>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell sx={{ width: "100%" }}>Token</TableCell>
+                <TableCell />
+              </TableRow>
+            </TableHead>
+          </Table>
+          <TableBody></TableBody>
           {data.myTokens.map((token) => (
-            <li>{token.name}</li>
+            <TableRow key={token.name}>
+              <TableCell sx={{ width: "100%" }}>{token.name}</TableCell>
+              <TableCell>
+                <Button variant="outlined" color="error">
+                  Delete
+                </Button>
+              </TableCell>
+            </TableRow>
           ))}
-        </ul>
+        </TableContainer>
       </Box>
     );
   }
