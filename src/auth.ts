@@ -37,7 +37,7 @@ const getToken = async (): Promise<string | null> => {
   const session = await Auth.currentSession();
 
   if (session) {
-    return session.getAccessToken().getJwtToken();
+    return session.getIdToken().getJwtToken();
   }
 
   await Auth.signOut();

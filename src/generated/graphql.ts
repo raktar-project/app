@@ -37,6 +37,13 @@ export type MutationGenerateTokenArgs = {
 export type Query = {
   __typename?: 'Query';
   crates: Array<Crate>;
+  myTokens: Array<Token>;
+};
+
+export type Token = {
+  __typename?: 'Token';
+  name: Scalars['String'];
+  userId: Scalars['Int'];
 };
 
 export type GenerateTokenMutationVariables = Exact<{
@@ -46,5 +53,11 @@ export type GenerateTokenMutationVariables = Exact<{
 
 export type GenerateTokenMutation = { __typename?: 'Mutation', generateToken: { __typename?: 'GeneratedToken', token: string } };
 
+export type MyTokensQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MyTokensQuery = { __typename?: 'Query', myTokens: Array<{ __typename?: 'Token', userId: number, name: string }> };
+
 
 export const GenerateTokenDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"GenerateToken"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"name"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"generateToken"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"name"},"value":{"kind":"Variable","name":{"kind":"Name","value":"name"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"token"}}]}}]}}]} as unknown as DocumentNode<GenerateTokenMutation, GenerateTokenMutationVariables>;
+export const MyTokensDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"MyTokens"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"myTokens"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"userId"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<MyTokensQuery, MyTokensQueryVariables>;

@@ -19,4 +19,10 @@ type Mutation {
 
 type Query {
   crates: [Crate!]!
+  myTokens: [Token!]!
+}
+
+type Token {
+  name: String!
+  userId: Int!
 }
