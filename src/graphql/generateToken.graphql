@@ -2,6 +2,7 @@ mutation GenerateToken($name: String!) {
   generateToken(name: $name) {
     token {
       id
+      userId
       name
     }
     key

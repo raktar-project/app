@@ -14,7 +14,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 const documents = {
     "mutation DeleteToken($tokenId: String!) {\n  deleteToken(tokenId: $tokenId) {\n    id\n  }\n}": types.DeleteTokenDocument,
-    "mutation GenerateToken($name: String!) {\n  generateToken(name: $name) {\n    token {\n      id\n      name\n    }\n    key\n  }\n}": types.GenerateTokenDocument,
+    "mutation GenerateToken($name: String!) {\n  generateToken(name: $name) {\n    token {\n      id\n      userId\n      name\n    }\n    key\n  }\n}": types.GenerateTokenDocument,
     "query MyTokens {\n  myTokens {\n    id\n    userId\n    name\n  }\n}": types.MyTokensDocument,
 };
 
@@ -39,7 +39,7 @@ export function graphql(source: "mutation DeleteToken($tokenId: String!) {\n  de
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "mutation GenerateToken($name: String!) {\n  generateToken(name: $name) {\n    token {\n      id\n      name\n    }\n    key\n  }\n}"): (typeof documents)["mutation GenerateToken($name: String!) {\n  generateToken(name: $name) {\n    token {\n      id\n      name\n    }\n    key\n  }\n}"];
+export function graphql(source: "mutation GenerateToken($name: String!) {\n  generateToken(name: $name) {\n    token {\n      id\n      userId\n      name\n    }\n    key\n  }\n}"): (typeof documents)["mutation GenerateToken($name: String!) {\n  generateToken(name: $name) {\n    token {\n      id\n      userId\n      name\n    }\n    key\n  }\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

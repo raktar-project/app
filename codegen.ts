@@ -9,6 +9,12 @@ const config: CodegenConfig = {
       preset: "client",
       plugins: [],
     },
+    "src/generated/introspection.json": {
+      plugins: ["introspection"],
+      config: {
+        minify: true,
+      },
+    },
   },
 };
 
