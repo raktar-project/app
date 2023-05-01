@@ -1,5 +1,9 @@
 import { cacheExchange } from "@urql/exchange-graphcache";
-import { MyTokensDocument } from "./generated/graphql.ts";
+import {
+  DeleteTokenMutation,
+  GenerateTokenMutation,
+  MyTokensDocument,
+} from "./generated/graphql.ts";
 import schema from "./generated/introspection.json";
 
 const exchange = cacheExchange({
@@ -7,7 +11,7 @@ const exchange = cacheExchange({
   updates: {
     Mutation: {
       generateToken(result, _, cache) {
-        const token = result.generateToken.token;
+        const token = (result as GenerateTokenMutation).generateToken.token;
 
         cache.updateQuery({ query: MyTokensDocument }, (data) => {
           if (data) {
@@ -17,7 +21,7 @@ const exchange = cacheExchange({
         });
       },
       deleteToken(result, _, cache) {
-        const id = result.deleteToken.id;
+        const id = (result as DeleteTokenMutation).deleteToken.id;
 
         cache.updateQuery({ query: MyTokensDocument }, (data) => {
           if (data) {
