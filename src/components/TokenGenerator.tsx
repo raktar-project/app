@@ -58,7 +58,7 @@ const TokenGenerator: FC = () => {
             <TableBody>
               <TableRow>
                 <TableCell sx={{ width: "100" }}>{tokenName}</TableCell>
-                <TableCell>{data.generateToken.token}</TableCell>
+                <TableCell>{data.generateToken.key}</TableCell>
               </TableRow>
             </TableBody>
           </Table>

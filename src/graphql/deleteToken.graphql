@@ -1,3 +1,5 @@
 mutation DeleteToken($tokenId: String!) {
-  deleteToken(tokenId: $tokenId)
+  deleteToken(tokenId: $tokenId) {
+    id
+  }
 }

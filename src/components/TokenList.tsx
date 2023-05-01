@@ -37,14 +37,14 @@ const TokenList: FC = () => {
           </Table>
           <TableBody></TableBody>
           {data.myTokens.map((token) => (
-            <TableRow key={token.tokenId}>
+            <TableRow key={token.id}>
               <TableCell sx={{ width: "100%" }}>{token.name}</TableCell>
               <TableCell>
                 <Button
                   variant="outlined"
                   color="error"
                   onClick={async () => {
-                    await deleteToken({ tokenId: token.tokenId });
+                    await deleteToken({ tokenId: token.id });
                   }}
                 >
                   Delete
