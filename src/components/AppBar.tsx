@@ -69,7 +69,14 @@ export default function PrimarySearchAppBar() {
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu anchorEl={anchorEl} id={menuId} keepMounted open={isMenuOpen} onClose={handleMenuClose}>
-      <MenuItem onClick={() => navigate("/tokens")}>Tokens</MenuItem>
+      <MenuItem
+        onClick={() => {
+          handleMenuClose();
+          navigate("/tokens");
+        }}
+      >
+        Tokens
+      </MenuItem>
       <MenuItem onClick={() => Auth.signOut()}>Logout</MenuItem>
     </Menu>
   );
