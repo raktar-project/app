@@ -1,0 +1,9 @@
+query CrateDetails($name: String!) {
+  crateDetails(name: $name) {
+    name
+    description
+    version
+    readme
+    repository
+  }
+}
