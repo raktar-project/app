@@ -1,11 +1,17 @@
 import { FC } from "react";
-import { Box, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid";
+
+import CratesList from "./CratesList.tsx";
 
 const Home: FC = () => {
   return (
-    <Box>
-      <Typography variant="h1">Home Page</Typography>
-    </Box>
+    <Grid container>
+      <Grid item xs={3} />
+      <Grid item xs={6}>
+        <CratesList />
+      </Grid>
+      <Grid item xs={3} />
+    </Grid>
   );
 };
 
