@@ -9,14 +9,27 @@ type Crate {
   name: String!
 }
 
+type DeletedToken {
+  id: String!
+}
+
 type GeneratedToken {
-  token: String!
+  key: String!
+  token: Token!
 }
 
 type Mutation {
+  deleteToken(tokenId: String!): DeletedToken!
   generateToken(name: String!): GeneratedToken!
 }
 
 type Query {
   crates: [Crate!]!
+  myTokens: [Token!]!
+}
+
+type Token {
+  id: String!
+  name: String!
+  userId: Int!
 }

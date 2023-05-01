@@ -1,36 +1,18 @@
-import { FC, useEffect, useState } from "react";
-import { Auth } from "aws-amplify";
-import { useNavigate } from "react-router-dom";
-import { Box, Button, LinearProgress, Typography } from "@mui/material";
-import TokenGenerator from "./TokenGenerator.tsx";
+import { FC } from "react";
+import Grid from "@mui/material/Grid";
+
+import CratesList from "./CratesList.tsx";
 
 const Home: FC = () => {
-  const [user, setUser] = useState<any>(null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const configureUser = async () => {
-      try {
-        const user = await Auth.currentAuthenticatedUser();
-        setUser(user);
-      } catch (e) {
-        navigate("/login");
-      }
-    };
-    configureUser();
-  }, [navigate]);
-
-  if (user) {
-    return (
-      <Box>
-        <Typography variant="h1">Home Page</Typography>
-        <TokenGenerator />
-        <Button onClick={() => Auth.signOut()}>Logout</Button>
-      </Box>
-    );
-  } else {
-    return <LinearProgress />;
-  }
+  return (
+    <Grid container>
+      <Grid item xs={3} />
+      <Grid item xs={6}>
+        <CratesList />
+      </Grid>
+      <Grid item xs={3} />
+    </Grid>
+  );
 };
 
 export default Home;

@@ -2,5 +2,5 @@ schema: ./schema.graphql
 extensions:
   endpoints:
     Remote endpoint:
-      url: http://localhost:3026/gql
+      url: http://0.0.0.0:3026/gql
       introspect: true

@@ -1,0 +1,7 @@
+query MyTokens {
+  myTokens {
+    id
+    userId
+    name
+  }
+}

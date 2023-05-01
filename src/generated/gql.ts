@@ -13,7 +13,10 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "mutation GenerateToken($name: String!) {\n  generateToken(name: $name) {\n    token\n  }\n}": types.GenerateTokenDocument,
+    "query Crates {\n  crates {\n    name\n  }\n}": types.CratesDocument,
+    "mutation DeleteToken($tokenId: String!) {\n  deleteToken(tokenId: $tokenId) {\n    id\n  }\n}": types.DeleteTokenDocument,
+    "mutation GenerateToken($name: String!) {\n  generateToken(name: $name) {\n    token {\n      id\n      userId\n      name\n    }\n    key\n  }\n}": types.GenerateTokenDocument,
+    "query MyTokens {\n  myTokens {\n    id\n    userId\n    name\n  }\n}": types.MyTokensDocument,
 };
 
 /**
@@ -33,7 +36,19 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "mutation GenerateToken($name: String!) {\n  generateToken(name: $name) {\n    token\n  }\n}"): (typeof documents)["mutation GenerateToken($name: String!) {\n  generateToken(name: $name) {\n    token\n  }\n}"];
+export function graphql(source: "query Crates {\n  crates {\n    name\n  }\n}"): (typeof documents)["query Crates {\n  crates {\n    name\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "mutation DeleteToken($tokenId: String!) {\n  deleteToken(tokenId: $tokenId) {\n    id\n  }\n}"): (typeof documents)["mutation DeleteToken($tokenId: String!) {\n  deleteToken(tokenId: $tokenId) {\n    id\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "mutation GenerateToken($name: String!) {\n  generateToken(name: $name) {\n    token {\n      id\n      userId\n      name\n    }\n    key\n  }\n}"): (typeof documents)["mutation GenerateToken($name: String!) {\n  generateToken(name: $name) {\n    token {\n      id\n      userId\n      name\n    }\n    key\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "query MyTokens {\n  myTokens {\n    id\n    userId\n    name\n  }\n}"): (typeof documents)["query MyTokens {\n  myTokens {\n    id\n    userId\n    name\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

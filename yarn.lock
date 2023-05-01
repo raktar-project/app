@@ -3000,6 +3000,15 @@
     auto-bind "~4.0.0"
     tslib "~2.5.0"
 
+"@graphql-codegen/introspection@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/introspection/-/introspection-3.0.1.tgz#403c9bb12abf998a3bd37a519eb0fd01b537d64d"
+  integrity sha512-D6vJQTEL/np4EmeUHm5spLK59cr+AMXEoLRoTI+dagFzlHYDTfXZH6F7uhKaakxcj0SAQhIWKvGMggotUdEtyg==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "^4.1.0"
+    "@graphql-codegen/visitor-plugin-common" "^3.0.1"
+    tslib "~2.5.0"
+
 "@graphql-codegen/plugin-helpers@^4.1.0", "@graphql-codegen/plugin-helpers@^4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/plugin-helpers/-/plugin-helpers-4.2.0.tgz#8324914d0f99162a223cfa01796cdd6be972d2ae"
@@ -3054,7 +3063,7 @@
     auto-bind "~4.0.0"
     tslib "~2.5.0"
 
-"@graphql-codegen/visitor-plugin-common@3.1.1", "@graphql-codegen/visitor-plugin-common@^3.1.1":
+"@graphql-codegen/visitor-plugin-common@3.1.1", "@graphql-codegen/visitor-plugin-common@^3.0.1", "@graphql-codegen/visitor-plugin-common@^3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/visitor-plugin-common/-/visitor-plugin-common-3.1.1.tgz#50c2aa3c537a805ce68d2f115d0a9811b151428c"
   integrity sha512-uAfp+zu/009R3HUAuTK2AamR1bxIltM6rrYYI6EXSmkM3rFtFsLTuJhjUDj98HcUCszJZrADppz8KKLGRUVlNg==
@@ -3424,6 +3433,13 @@
   resolved "https://registry.yarnpkg.com/@mui/core-downloads-tracker/-/core-downloads-tracker-5.12.2.tgz#4a0186d25b01d693171366e1c00de0e7c8c35f6a"
   integrity sha512-Qn7dy8tql6T0hY6gTFPkpWlnqVVFGu5Z6QzEzUSzzmLZpfAx4kf8sFz0PHiB7gU5yrqcZF9picMx1shpRY/rXw==
 
+"@mui/icons-material@^5.11.16":
+  version "5.11.16"
+  resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.11.16.tgz#417fa773c56672e39d6ccfed9ac55591985f0d38"
+  integrity sha512-oKkx9z9Kwg40NtcIajF9uOXhxiyTZrrm9nmIJ4UjkU2IdHpd4QVLbCc/5hZN/y0C6qzi2Zlxyr9TGddQx2vx2A==
+  dependencies:
+    "@babel/runtime" "^7.21.0"
+
 "@mui/material@^5.12.1":
   version "5.12.2"
   resolved "https://registry.yarnpkg.com/@mui/material/-/material-5.12.2.tgz#c3fcc94e523d9e673e2e045dfad04d12ab454a80"
@@ -3777,6 +3793,15 @@
   resolved "https://registry.yarnpkg.com/@urql/exchange-auth/-/exchange-auth-2.1.2.tgz#ea4aab54ed226f114a6d6a536c8e740a622adefa"
   integrity sha512-YoQgCXW3JlC5HimRXWuqKqcMwrop8SqXXbSlycyg7rG4BXGkZ1tFgZzrdasjhh2U+u3TWad0gTjF8oE2fjULpw==
   dependencies:
+    "@urql/core" ">=4.0.0"
+    wonka "^6.3.2"
+
+"@urql/exchange-graphcache@^6.0.4":
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/@urql/exchange-graphcache/-/exchange-graphcache-6.0.4.tgz#55b9dab64369f4a887f10a1a5e5f855ba68283ae"
+  integrity sha512-fzfCUrHzhLycPRa6kYrQYryk0pwmUfeHY9Xqh11A6wtp4/diV7FASlffB5k2j3AWRBxBnqThXDssRXI/G8cACQ==
+  dependencies:
+    "@0no-co/graphql.web" "^1.0.1"
     "@urql/core" ">=4.0.0"
     wonka "^6.3.2"
 
