@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { useQuery } from "urql";
+import { useMutation, useQuery } from "urql";
 
-import { MyTokensDocument } from "../generated/graphql.ts";
+import { DeleteTokenDocument, MyTokensDocument } from "../generated/graphql.ts";
 import {
   Box,
   Button,
@@ -17,6 +17,7 @@ import {
 
 const TokenList: FC = () => {
   const [{ data, error, fetching }] = useQuery({ query: MyTokensDocument });
+  const [, deleteToken] = useMutation(DeleteTokenDocument);
 
   if (fetching) {
     return <CircularProgress />;
@@ -36,10 +37,16 @@ const TokenList: FC = () => {
           </Table>
           <TableBody></TableBody>
           {data.myTokens.map((token) => (
-            <TableRow key={token.name}>
+            <TableRow key={token.tokenId}>
               <TableCell sx={{ width: "100%" }}>{token.name}</TableCell>
               <TableCell>
-                <Button variant="outlined" color="error">
+                <Button
+                  variant="outlined"
+                  color="error"
+                  onClick={async () => {
+                    await deleteToken({ tokenId: token.tokenId });
+                  }}
+                >
                   Delete
                 </Button>
               </TableCell>
