@@ -13,7 +13,7 @@ import Home from "./components/Home.tsx";
 import { exchange as authExchange } from "./auth";
 import AuthenticatedLayout from "./components/AuthenticatedLayout.tsx";
 import TokenManagement from "./components/TokenManagement.tsx";
-import Crate from "./components/Crate.tsx";
+import CratePage from "./components/CratePage.tsx";
 
 Amplify.configure(awsExports);
 const client = createClient({
@@ -45,7 +45,7 @@ const App: FC = () => {
         },
         {
           path: "/crates/:crateName",
-          element: <Crate />,
+          element: <CratePage />,
         },
       ],
     },
