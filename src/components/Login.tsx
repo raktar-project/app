@@ -1,13 +1,23 @@
 import { FC } from "react";
 import { Button } from "@mui/material";
 import { Auth } from "aws-amplify";
+import Grid from "@mui/material/Grid";
 
 const Login: FC = () => (
-  <div>
-    <Button onClick={() => Auth.federatedSignIn({ customProvider: "aws-sso" })}>
-      Login using SSO
-    </Button>
-  </div>
+  <Grid container sx={{ marginTop: 10 }}>
+    <Grid item xs={4} />
+    <Grid item xs={4}>
+      <Button
+        onClick={() => Auth.federatedSignIn({ customProvider: "aws-sso" })}
+        fullWidth
+        variant="contained"
+        size="large"
+      >
+        Login using SSO
+      </Button>
+    </Grid>
+    <Grid item xs={4} />
+  </Grid>
 );
 
 export default Login;
