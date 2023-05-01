@@ -16,6 +16,16 @@ const exchange = cacheExchange({
           return data;
         });
       },
+      deleteToken(result, _, cache) {
+        const id = result.deleteToken.id;
+
+        cache.updateQuery({ query: MyTokensDocument }, (data) => {
+          if (data) {
+            data.myTokens = data.myTokens.filter((t) => t.id !== id);
+          }
+          return data;
+        });
+      },
     },
   },
 });
