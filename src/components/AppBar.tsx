@@ -2,6 +2,7 @@ import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
@@ -11,7 +12,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Settings } from "@mui/icons-material";
 import { Auth } from "aws-amplify";
 import { useNavigate } from "react-router-dom";
-import { Typography } from "@mui/material";
+
+import iconUrl from "../assets/logo-light.svg";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -85,21 +87,9 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            sx={{
-              textDecoration: "none",
-              ":hover": {
-                textDecoration: "none",
-                cursor: "pointer",
-              },
-            }}
-            onClick={() => navigate("/")}
-          >
-            Raktar
-          </Typography>
+          <Button color="inherit" onClick={() => navigate("/")}>
+            <img src={iconUrl} alt="Raktar" style={{ maxWidth: "auto", maxHeight: "45px" }} />
+          </Button>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
