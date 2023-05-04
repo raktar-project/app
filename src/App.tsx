@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { Amplify } from "aws-amplify";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { CssBaseline } from "@mui/material";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { createClient, dedupExchange, fetchExchange, Provider as UrqlProvider } from "urql";
 
 import awsExports from "./aws-exports.ts";
@@ -14,11 +14,21 @@ import { exchange as authExchange } from "./auth";
 import AuthenticatedLayout from "./components/AuthenticatedLayout.tsx";
 import TokenManagement from "./components/TokenManagement.tsx";
 import CratePage from "./components/CratePage.tsx";
+import Help from "./components/Help.tsx";
 
 Amplify.configure(awsExports);
 const client = createClient({
-  url: import.meta.env.VITE_GRAPHQL_API_URL,
+  url: `${import.meta.env.VITE_API_URL}/gql`,
   exchanges: [dedupExchange, cacheExchange, authExchange, fetchExchange],
+});
+
+const customTheme = createTheme({
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#5e6ca9",
+    },
+  },
 });
 
 const App: FC = () => {
@@ -40,6 +50,10 @@ const App: FC = () => {
           element: <Home />,
         },
         {
+          path: "/help",
+          element: <Help />,
+        },
+        {
           path: "/tokens",
           element: <TokenManagement />,
         },
@@ -51,11 +65,13 @@ const App: FC = () => {
     },
   ]);
   return (
-    <UrqlProvider value={client}>
-      <CssBaseline>
-        <RouterProvider router={router} />
-      </CssBaseline>
-    </UrqlProvider>
+    <ThemeProvider theme={customTheme}>
+      <UrqlProvider value={client}>
+        <CssBaseline>
+          <RouterProvider router={router} />
+        </CssBaseline>
+      </UrqlProvider>
+    </ThemeProvider>
   );
 };
 
