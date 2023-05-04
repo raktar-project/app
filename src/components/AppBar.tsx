@@ -9,7 +9,7 @@ import InputBase from "@mui/material/InputBase";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import { Settings } from "@mui/icons-material";
+import { Help, Settings } from "@mui/icons-material";
 import { Auth } from "aws-amplify";
 import { useNavigate } from "react-router-dom";
 
@@ -98,6 +98,17 @@ export default function PrimarySearchAppBar() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: "flex" }}>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="help"
+              aria-controls="help-btn"
+              aria-haspopup="true"
+              onClick={() => navigate("/help")}
+              color="inherit"
+            >
+              <Help />
+            </IconButton>
             <IconButton
               size="large"
               edge="end"

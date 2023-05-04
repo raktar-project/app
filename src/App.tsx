@@ -14,10 +14,11 @@ import { exchange as authExchange } from "./auth";
 import AuthenticatedLayout from "./components/AuthenticatedLayout.tsx";
 import TokenManagement from "./components/TokenManagement.tsx";
 import CratePage from "./components/CratePage.tsx";
+import Help from "./components/Help.tsx";
 
 Amplify.configure(awsExports);
 const client = createClient({
-  url: import.meta.env.VITE_GRAPHQL_API_URL,
+  url: `${import.meta.env.VITE_API_URL}/gql`,
   exchanges: [dedupExchange, cacheExchange, authExchange, fetchExchange],
 });
 
@@ -38,6 +39,10 @@ const App: FC = () => {
         {
           path: "/",
           element: <Home />,
+        },
+        {
+          path: "/help",
+          element: <Help />,
         },
         {
           path: "/tokens",
