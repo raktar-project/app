@@ -6,10 +6,15 @@ import CrateReadme from "./CrateReadme.tsx";
 import Grid from "@mui/material/Grid";
 import CrateSidebar from "./CrateSidebar.tsx";
 
-export const Crate: FC<{ name: string }> = ({ name }) => {
+interface CrateProps {
+  name: string;
+  version: string | undefined;
+}
+
+export const Crate: FC<CrateProps> = ({ name, version }) => {
   const [{ data, error, fetching }] = useQuery({
     query: CrateDetailsDocument,
-    variables: { name },
+    variables: { name, version },
   });
 
   if (error) {
@@ -28,6 +33,7 @@ export const Crate: FC<{ name: string }> = ({ name }) => {
             name={data.crateDetails.name}
             version={data.crateDetails.version}
             description={data.crateDetails.description || ""}
+            allVersions={data.crateDetails.allVersions}
           />
         </Grid>
         <Grid item xs={2} />

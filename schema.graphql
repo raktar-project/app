@@ -6,6 +6,7 @@ schema {
 }
 
 type Crate {
+  allVersions: [String!]!
   authors: [String!]!
   categories: [String!]!
   description: String
@@ -37,7 +38,7 @@ type Mutation {
 }
 
 type Query {
-  crateDetails(name: String!): Crate!
+  crateDetails(name: String!, version: String): Crate!
   crates: [CrateSummary!]!
   myTokens: [Token!]!
 }
