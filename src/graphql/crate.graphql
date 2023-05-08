@@ -1,5 +1,5 @@
-query CrateDetails($name: String!) {
-  crateDetails(name: $name) {
+query CrateDetails($name: String!, $version: String) {
+  crateDetails(name: $name, version: $version) {
     name
     description
     version

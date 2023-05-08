@@ -4,11 +4,12 @@ import { Crate } from "./crate/Crate.tsx";
 
 const CratePage: FC = () => {
   const { crateName } = useParams();
+  const { version } = useParams();
 
   if (crateName === undefined) {
     return <div>Missing crate name!</div>;
   } else {
-    return <Crate name={crateName} />;
+    return <Crate name={crateName} version={version} />;
   }
 };
 

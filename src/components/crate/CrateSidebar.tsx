@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Paper, Stack, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 interface CrateSidebarProps {
   name: string;
@@ -22,7 +23,9 @@ const CrateSidebar: FC<CrateSidebarProps> = ({ name, description, version, allVe
         <Typography variant="h5">Versions</Typography>
         <ul>
           {allVersions.map((v) => (
-            <li>{v}</li>
+            <li key={v}>
+              <Link to={`/crates/${name}/${v}`}>{v}</Link>
+            </li>
           ))}
         </ul>
       </Paper>

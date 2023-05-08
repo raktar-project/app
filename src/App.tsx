@@ -58,7 +58,7 @@ const App: FC = () => {
           element: <TokenManagement />,
         },
         {
-          path: "/crates/:crateName",
+          path: "/crates/:crateName/:version?",
           element: <CratePage />,
         },
       ],
