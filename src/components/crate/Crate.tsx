@@ -28,6 +28,7 @@ export const Crate: FC<{ name: string }> = ({ name }) => {
             name={data.crateDetails.name}
             version={data.crateDetails.version}
             description={data.crateDetails.description || ""}
+            allVersions={data.crateDetails.allVersions}
           />
         </Grid>
         <Grid item xs={2} />

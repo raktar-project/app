@@ -6,6 +6,7 @@ schema {
 }
 
 type Crate {
+  allVersions: [String!]!
   authors: [String!]!
   categories: [String!]!
   description: String
