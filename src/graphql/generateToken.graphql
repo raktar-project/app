@@ -1,5 +1,6 @@
 mutation GenerateToken($name: String!) {
   generateToken(name: $name) {
+    id
     token {
       id
       userId

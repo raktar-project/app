@@ -49,7 +49,6 @@ const SearchBar: FC = () => {
 
   const onSelect = (_event: unknown, value: unknown) => {
     setFilterText("");
-    console.log("reset filter text");
     navigate(`crates/${value}`);
   };
 
