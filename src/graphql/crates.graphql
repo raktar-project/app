@@ -1,5 +1,5 @@
-query Crates {
-  crates {
+query Crates($filter: String) {
+  crates(filter: $filter) {
     name
   }
 }

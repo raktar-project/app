@@ -39,7 +39,7 @@ type Mutation {
 
 type Query {
   crateDetails(name: String!, version: String): Crate!
-  crates: [CrateSummary!]!
+  crates(filter: String): [CrateSummary!]!
   myTokens: [Token!]!
 }
 
