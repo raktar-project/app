@@ -3,24 +3,19 @@ import { FC } from "react";
 import { Amplify } from "aws-amplify";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
-import { createClient, dedupExchange, fetchExchange, Provider as UrqlProvider } from "urql";
+import { Provider as UrqlProvider } from "urql";
 
 import awsExports from "./aws-exports.ts";
-import cacheExchange from "./cache.ts";
+import client from "./client.ts";
 import Login from "./components/Login.tsx";
 import AuthCallback from "./components/AuthCallback.tsx";
 import Home from "./components/Home.tsx";
-import { exchange as authExchange } from "./auth";
 import AuthenticatedLayout from "./components/AuthenticatedLayout.tsx";
 import TokenManagement from "./components/TokenManagement.tsx";
 import CratePage from "./components/CratePage.tsx";
 import Help from "./components/Help.tsx";
 
 Amplify.configure(awsExports);
-const client = createClient({
-  url: `${import.meta.env.VITE_API_URL}/gql`,
-  exchanges: [dedupExchange, cacheExchange, authExchange, fetchExchange],
-});
 
 const customTheme = createTheme({
   palette: {

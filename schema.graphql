@@ -10,6 +10,7 @@ type Crate {
   authors: [String!]!
   categories: [String!]!
   description: String
+  id: ID!
   keywords: [String!]!
   name: String!
   readme: String
@@ -19,6 +20,7 @@ type Crate {
 
 type CrateSummary {
   description: String!
+  id: ID!
   maxVersion: String!
   name: String!
 }
@@ -28,6 +30,7 @@ type DeletedToken {
 }
 
 type GeneratedToken {
+  id: ID!
   key: String!
   token: Token!
 }
@@ -39,12 +42,12 @@ type Mutation {
 
 type Query {
   crateDetails(name: String!, version: String): Crate!
-  crates: [CrateSummary!]!
+  crates(filter: String, limit: Int): [CrateSummary!]!
   myTokens: [Token!]!
 }
 
 type Token {
-  id: String!
+  id: ID!
   name: String!
   userId: Int!
 }
