@@ -41,7 +41,9 @@ const SearchBar: FC = () => {
 
   const onChange = async (event: ChangeEvent<HTMLInputElement>) => {
     setFilterText(event.target.value);
-    const result = await client.query(CratesDocument, { filter: event.target.value }).toPromise();
+    const result = await client
+      .query(CratesDocument, { filter: event.target.value, limit: 8 })
+      .toPromise();
     if (result.data) {
       setOptions(result.data.crates.map((c) => c.name));
     }

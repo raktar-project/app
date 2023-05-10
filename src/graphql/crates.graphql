@@ -1,5 +1,5 @@
-query Crates($filter: String) {
-  crates(filter: $filter) {
+query Crates($filter: String, $limit: Int) {
+  crates(filter: $filter, limit: $limit) {
     id
     name
   }

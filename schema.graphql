@@ -1,53 +1,53 @@
 # This file was generated. Do not edit manually.
 
 schema {
-    query: Query
-    mutation: Mutation
+  query: Query
+  mutation: Mutation
 }
 
 type Crate {
-    allVersions: [String!]!
-    authors: [String!]!
-    categories: [String!]!
-    description: String
-    id: ID!
-    keywords: [String!]!
-    name: String!
-    readme: String
-    repository: String
-    version: String!
+  allVersions: [String!]!
+  authors: [String!]!
+  categories: [String!]!
+  description: String
+  id: ID!
+  keywords: [String!]!
+  name: String!
+  readme: String
+  repository: String
+  version: String!
 }
 
 type CrateSummary {
-    description: String!
-    id: ID!
-    maxVersion: String!
-    name: String!
+  description: String!
+  id: ID!
+  maxVersion: String!
+  name: String!
 }
 
 type DeletedToken {
-    id: String!
+  id: String!
 }
 
 type GeneratedToken {
-    id: ID!
-    key: String!
-    token: Token!
+  id: ID!
+  key: String!
+  token: Token!
 }
 
 type Mutation {
-    deleteToken(tokenId: String!): DeletedToken!
-    generateToken(name: String!): GeneratedToken!
+  deleteToken(tokenId: String!): DeletedToken!
+  generateToken(name: String!): GeneratedToken!
 }
 
 type Query {
-    crateDetails(name: String!, version: String): Crate!
-    crates(filter: String): [CrateSummary!]!
-    myTokens: [Token!]!
+  crateDetails(name: String!, version: String): Crate!
+  crates(filter: String, limit: Int): [CrateSummary!]!
+  myTokens: [Token!]!
 }
 
 type Token {
-    id: ID!
-    name: String!
-    userId: Int!
+  id: ID!
+  name: String!
+  userId: Int!
 }

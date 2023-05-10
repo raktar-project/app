@@ -16,7 +16,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const CratesList: FC = () => {
-  const [{ data, error, fetching }] = useQuery({ query: CratesDocument });
+  const [{ data, error, fetching }] = useQuery({ query: CratesDocument, variables: { limit: 20 } });
   const navigate = useNavigate();
 
   if (error) {
