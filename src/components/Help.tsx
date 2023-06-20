@@ -12,7 +12,7 @@ Let's use the name "raktar" for example.
 Add a new entry in the Cargo configuration file for the registry:
 \`\`\`toml
 [registries.raktar]
-index = "sparse+${import.meta.env.VITE_API_URL}/"
+index = "sparse+https://api.${import.meta.env.VITE_APP_DOMAIN}/"
 \`\`\`
 
 Cargo configuration files follow a hierarchical structure.

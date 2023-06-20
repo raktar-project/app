@@ -7,23 +7,20 @@ import { aws_certificatemanager as certificatemanager } from "aws-cdk-lib";
 import { aws_cloudfront as cloudfront } from "aws-cdk-lib";
 import { aws_cloudfront_origins as origins } from "aws-cdk-lib";
 
-import * as appConfig from "../appConfig.json";
+import config from "./config";
 
 export class InfrastructureStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
-    super(scope, id, props);
+  constructor(scope: Construct, id: string, certificate: certificatemanager.Certificate) {
+    const env = { account: config.account, region: config.region };
+    super(scope, id, { crossRegionReferences: true, env });
+
+    const domainNames = [config.appDomain, `www.${config.appDomain}`];
 
     const bucket = new s3.Bucket(this, "FrontendBucket", {
       autoDeleteObjects: true,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       removalPolicy: RemovalPolicy.DESTROY,
     });
-
-    const certificate = certificatemanager.Certificate.fromCertificateArn(
-      this,
-      "FrontendCertificate",
-      appConfig.certificateArn,
-    );
 
     const behaviour: cloudfront.BehaviorOptions = {
       origin: new origins.S3Origin(bucket),
@@ -33,7 +30,7 @@ export class InfrastructureStack extends cdk.Stack {
     const distribution = new cloudfront.Distribution(this, "FrontendAppDistribution", {
       defaultBehavior: behaviour,
       defaultRootObject: "index.html",
-      domainNames: appConfig.domainNames,
+      domainNames,
       certificate,
       errorResponses: [
         {
