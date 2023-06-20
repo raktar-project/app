@@ -3,6 +3,7 @@
 # raktar-app
 
 **A web application for Raktar.**
+
 </div>
 
 This app allows users authenticated through the AWS Cognito user pool

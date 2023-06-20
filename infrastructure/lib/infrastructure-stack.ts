@@ -9,9 +9,15 @@ import { aws_cloudfront_origins as origins } from "aws-cdk-lib";
 
 import * as appConfig from "../appConfig.json";
 
+interface AppConfig {
+  appDomain: string;
+}
+
 export class InfrastructureStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, config: AppConfig, props?: cdk.StackProps) {
     super(scope, id, props);
+
+    const domainNames = [config.appDomain, `www.${config.appDomain}`];
 
     const bucket = new s3.Bucket(this, "FrontendBucket", {
       autoDeleteObjects: true,
@@ -33,7 +39,7 @@ export class InfrastructureStack extends cdk.Stack {
     const distribution = new cloudfront.Distribution(this, "FrontendAppDistribution", {
       defaultBehavior: behaviour,
       defaultRootObject: "index.html",
-      domainNames: appConfig.domainNames,
+      domainNames,
       certificate,
       errorResponses: [
         {

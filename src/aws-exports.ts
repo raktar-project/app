@@ -5,8 +5,8 @@ export default {
     userPoolWebClientId: import.meta.env.VITE_AWS_USER_POOL_CLIENT_ID,
     authenticationFlowType: "USER_SRP_AUTH",
     oauth: {
-      redirectSignIn: `${import.meta.env.VITE_APP_URL}/cb`,
-      redirectSignOut: import.meta.env.VITE_APP_URL,
+      redirectSignIn: `https://${import.meta.env.VITE_APP_DOMAIN}/cb`,
+      redirectSignOut: `https://${import.meta.env.VITE_APP_DOMAIN}`,
       domain: import.meta.env.VITE_COGNITO_DOMAIN,
       responseType: "code",
     },
