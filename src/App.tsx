@@ -1,8 +1,8 @@
 import { FC } from "react";
 
 import { Amplify } from "aws-amplify";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider as UrqlProvider } from "urql";
 
 import awsExports from "./aws-exports.ts";
