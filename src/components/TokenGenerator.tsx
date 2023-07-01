@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useState } from "react";
+import { FC } from "react";
 import {
   Alert,
   Button,
@@ -12,9 +12,14 @@ import { useMutation } from "urql";
 import { GenerateTokenDocument } from "../generated/graphql.ts";
 import IconButton from "@mui/material/IconButton";
 import { ContentCopy } from "@mui/icons-material";
+import { Controller, useForm } from "react-hook-form";
+
+interface FormValues {
+  tokenName: string;
+}
 
 const TokenGenerator: FC = () => {
-  const [tokenName, setTokenName] = useState<string>("");
+  const { control, handleSubmit } = useForm<FormValues>({ defaultValues: { tokenName: "" } });
   const [{ data, error, fetching }, generateToken] = useMutation(GenerateTokenDocument);
 
   if (error) {
@@ -26,25 +31,25 @@ const TokenGenerator: FC = () => {
   return (
     <Paper elevation={3} sx={{ padding: 2 }}>
       {!data && (
-        <>
-          <TextField
-            onChange={(event: ChangeEvent<HTMLInputElement>) => {
-              setTokenName(event.target.value);
-            }}
-            label="Token name"
-            fullWidth
-            size="small"
-            disabled={data !== undefined}
+        <form onSubmit={handleSubmit((data) => generateToken({ name: data.tokenName }))}>
+          <Controller
+            name="tokenName"
+            control={control}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                required
+                label="Token name"
+                fullWidth
+                size="small"
+                disabled={data !== undefined}
+              />
+            )}
           />
-          <Button
-            onClick={() => generateToken({ name: tokenName })}
-            fullWidth
-            variant="outlined"
-            sx={{ marginTop: 2 }}
-          >
+          <Button type="submit" fullWidth variant="outlined" sx={{ marginTop: 2 }}>
             Generate New Token
           </Button>
-        </>
+        </form>
       )}
       {data && (
         <Stack gap={2}>

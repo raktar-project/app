@@ -1,4 +1,5 @@
-const appUrl = `https://crates.${import.meta.env.VITE_HOSTED_ZONE_DOMAIN}`;
+const appUrl =
+  import.meta.env.VITE_APP_URL || `https://crates.${import.meta.env.VITE_HOSTED_ZONE_DOMAIN}`;
 
 export default {
   Auth: {
