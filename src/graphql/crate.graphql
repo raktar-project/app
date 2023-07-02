@@ -8,6 +8,10 @@ query CrateVersion($name: String!, $version: String) {
     repository
     crate {
       versions
+      owners {
+        id
+        login
+      }
     }
   }
 }

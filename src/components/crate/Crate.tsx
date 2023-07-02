@@ -34,6 +34,7 @@ export const Crate: FC<CrateProps> = ({ name, version }) => {
             version={data.crateVersion.version}
             description={data.crateVersion.description || ""}
             allVersions={data.crateVersion.crate.versions}
+            owners={data.crateVersion.crate.owners}
           />
         </Grid>
         <Grid item xs={2} />
