@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "query CrateVersion($name: String!, $version: String) {\n  crateVersion(name: $name, version: $version) {\n    id\n    name\n    description\n    version\n    readme\n    repository\n    crate {\n      versions\n    }\n  }\n}": types.CrateVersionDocument,
+    "query CrateVersion($name: String!, $version: String) {\n  crateVersion(name: $name, version: $version) {\n    id\n    name\n    description\n    version\n    readme\n    repository\n    crate {\n      versions\n      owners {\n        id\n        login\n      }\n    }\n  }\n}": types.CrateVersionDocument,
     "query Crates($filter: String, $limit: Int) {\n  crates(filter: $filter, limit: $limit) {\n    id\n    name\n  }\n}": types.CratesDocument,
     "mutation DeleteToken($tokenId: String!) {\n  deleteToken(tokenId: $tokenId) {\n    id\n  }\n}": types.DeleteTokenDocument,
     "mutation GenerateToken($name: String!) {\n  generateToken(name: $name) {\n    id\n    token {\n      id\n      userId\n      name\n    }\n    key\n  }\n}": types.GenerateTokenDocument,
@@ -37,7 +37,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "query CrateVersion($name: String!, $version: String) {\n  crateVersion(name: $name, version: $version) {\n    id\n    name\n    description\n    version\n    readme\n    repository\n    crate {\n      versions\n    }\n  }\n}"): (typeof documents)["query CrateVersion($name: String!, $version: String) {\n  crateVersion(name: $name, version: $version) {\n    id\n    name\n    description\n    version\n    readme\n    repository\n    crate {\n      versions\n    }\n  }\n}"];
+export function graphql(source: "query CrateVersion($name: String!, $version: String) {\n  crateVersion(name: $name, version: $version) {\n    id\n    name\n    description\n    version\n    readme\n    repository\n    crate {\n      versions\n      owners {\n        id\n        login\n      }\n    }\n  }\n}"): (typeof documents)["query CrateVersion($name: String!, $version: String) {\n  crateVersion(name: $name, version: $version) {\n    id\n    name\n    description\n    version\n    readme\n    repository\n    crate {\n      versions\n      owners {\n        id\n        login\n      }\n    }\n  }\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
