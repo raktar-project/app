@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useQuery } from "urql";
-import { CrateDetailsDocument } from "../../generated/graphql.ts";
+import { CrateVersionDocument } from "../../generated/graphql.ts";
 import { LinearProgress } from "@mui/material";
 import CrateReadme from "./CrateReadme.tsx";
 import Grid from "@mui/material/Grid";
@@ -13,7 +13,7 @@ interface CrateProps {
 
 export const Crate: FC<CrateProps> = ({ name, version }) => {
   const [{ data, error, fetching }] = useQuery({
-    query: CrateDetailsDocument,
+    query: CrateVersionDocument,
     variables: { name, version },
   });
 
@@ -26,14 +26,14 @@ export const Crate: FC<CrateProps> = ({ name, version }) => {
       <Grid container sx={{ marginTop: 3 }} gap={5}>
         <Grid item xs={2} />
         <Grid item xs={6}>
-          {data.crateDetails.readme && <CrateReadme readme={data.crateDetails.readme} />}
+          {data.crateVersion.readme && <CrateReadme readme={data.crateVersion.readme} />}
         </Grid>
         <Grid item xs={2}>
           <CrateSidebar
-            name={data.crateDetails.name}
-            version={data.crateDetails.version}
-            description={data.crateDetails.description || ""}
-            allVersions={data.crateDetails.allVersions}
+            name={data.crateVersion.name}
+            version={data.crateVersion.version}
+            description={data.crateVersion.description || ""}
+            allVersions={data.crateVersion.crate.versions}
           />
         </Grid>
         <Grid item xs={2} />
@@ -43,5 +43,3 @@ export const Crate: FC<CrateProps> = ({ name, version }) => {
 
   return <div>Unexpected state.</div>;
 };
-
-export default Crate;

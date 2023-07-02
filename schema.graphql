@@ -5,10 +5,19 @@ schema {
   mutation: Mutation
 }
 
-type Crate {
-  allVersions: [String!]!
+type CrateSummary {
+  description: String!
+  id: ID!
+  maxVersion: String!
+  name: String!
+  owners: [User!]!
+  versions: [String!]!
+}
+
+type CrateVersion {
   authors: [String!]!
   categories: [String!]!
+  crate: CrateSummary!
   description: String
   id: ID!
   keywords: [String!]!
@@ -16,13 +25,6 @@ type Crate {
   readme: String
   repository: String
   version: String!
-}
-
-type CrateSummary {
-  description: String!
-  id: ID!
-  maxVersion: String!
-  name: String!
 }
 
 type DeletedToken {
@@ -41,7 +43,8 @@ type Mutation {
 }
 
 type Query {
-  crateDetails(name: String!, version: String): Crate!
+  crate(name: String!): CrateSummary!
+  crateVersion(name: String!, version: String): CrateVersion!
   crates(filter: String, limit: Int): [CrateSummary!]!
   myTokens: [Token!]!
 }
@@ -50,4 +53,9 @@ type Token {
   id: ID!
   name: String!
   userId: Int!
+}
+
+type User {
+  id: ID!
+  login: String!
 }
