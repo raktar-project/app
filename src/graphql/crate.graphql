@@ -1,11 +1,13 @@
-query CrateDetails($name: String!, $version: String) {
-  crateDetails(name: $name, version: $version) {
+query CrateVersion($name: String!, $version: String) {
+  crateVersion(name: $name, version: $version) {
     id
     name
     description
     version
     readme
     repository
-    allVersions
+    crate {
+      versions
+    }
   }
 }
