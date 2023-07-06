@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 interface Owner {
   id: string;
   login: string;
+  givenName: string;
+  familyName: string;
 }
 
 interface CrateSidebarProps {
@@ -46,7 +48,7 @@ const CrateSidebar: FC<CrateSidebarProps> = ({
         <ul>
           {owners.map((user) => (
             <li key={user.id}>
-              <Link to={`/users/${user.id}`}>{user.login}</Link>
+              <Link to={`/users/${user.id}`}>{`${user.givenName} ${user.familyName}`}</Link>
             </li>
           ))}
         </ul>

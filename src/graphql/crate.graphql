@@ -11,6 +11,8 @@ query CrateVersion($name: String!, $version: String) {
       owners {
         id
         login
+        givenName
+        familyName
       }
     }
   }

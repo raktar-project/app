@@ -12,8 +12,9 @@ import AuthCallback from "./components/AuthCallback.tsx";
 import Home from "./components/Home.tsx";
 import AuthenticatedLayout from "./components/AuthenticatedLayout.tsx";
 import TokenManagement from "./components/TokenManagement.tsx";
-import CratePage from "./components/CratePage.tsx";
+import CratePage from "./components/crate/CratePage.tsx";
 import Help from "./components/Help.tsx";
+import UserPage from "./components/user/UserPage.tsx";
 
 Amplify.configure(awsExports);
 
@@ -55,6 +56,10 @@ const App: FC = () => {
         {
           path: "/crates/:crateName/:version?",
           element: <CratePage />,
+        },
+        {
+          path: "/users/:userId",
+          element: <UserPage />,
         },
       ],
     },
