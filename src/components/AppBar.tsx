@@ -6,7 +6,7 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import { Help, Settings } from "@mui/icons-material";
+import { Help, People, Settings } from "@mui/icons-material";
 import { Auth } from "aws-amplify";
 import { useNavigate } from "react-router-dom";
 
@@ -51,6 +51,17 @@ export default function PrimarySearchAppBar() {
           <SearchBar />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: "flex" }}>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="user directory"
+              aria-controls="user-dir-btn"
+              aria-haspopup="true"
+              onClick={() => navigate("/users")}
+              color="inherit"
+            >
+              <People />
+            </IconButton>
             <IconButton
               size="large"
               edge="end"

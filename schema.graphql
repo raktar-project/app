@@ -47,6 +47,8 @@ type Query {
   crateVersion(name: String!, version: String): CrateVersion!
   crates(filter: String, limit: Int): [CrateSummary!]!
   myTokens: [Token!]!
+  user(id: ID!): User
+  users: [User!]!
 }
 
 type Token {
@@ -56,6 +58,8 @@ type Token {
 }
 
 type User {
+  familyName: String!
+  givenName: String!
   id: ID!
   login: String!
 }

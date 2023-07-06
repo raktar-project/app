@@ -1,13 +1,13 @@
 import { FC } from "react";
 import { useParams } from "react-router-dom";
-import { Crate } from "./crate/Crate.tsx";
+import { Crate } from "./Crate.tsx";
 
 const CratePage: FC = () => {
   const { crateName } = useParams();
   const { version } = useParams();
 
   if (crateName === undefined) {
-    return <div>Missing crate name!</div>;
+    return <div>Missing crate name</div>;
   } else {
     return <Crate name={crateName} version={version} />;
   }
