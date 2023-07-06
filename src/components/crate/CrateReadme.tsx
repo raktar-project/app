@@ -1,11 +1,12 @@
 import { FC } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+
 import { Paper } from "@mui/material";
+
+import Markdown from "../Markdown.tsx";
 
 const CrateReadme: FC<{ readme: string }> = ({ readme }) => (
   <Paper sx={{ padding: 2 }}>
-    <ReactMarkdown children={readme} remarkPlugins={[remarkGfm]} />
+    <Markdown markdown={readme} />
   </Paper>
 );
 
