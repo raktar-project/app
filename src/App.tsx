@@ -15,6 +15,7 @@ import TokenManagement from "./components/TokenManagement.tsx";
 import CratePage from "./components/crate/CratePage.tsx";
 import Help from "./components/Help.tsx";
 import UserPage from "./components/user/UserPage.tsx";
+import UsersPage from "./components/user-directory/UsersPage.tsx";
 
 Amplify.configure(awsExports);
 
@@ -56,6 +57,10 @@ const App: FC = () => {
         {
           path: "/crates/:crateName/:version?",
           element: <CratePage />,
+        },
+        {
+          path: "/users",
+          element: <UsersPage />,
         },
         {
           path: "/users/:userId",
