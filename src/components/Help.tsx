@@ -1,8 +1,8 @@
 import { FC } from "react";
 
 import Grid from "@mui/material/Grid";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+
+import Markdown from "./Markdown.tsx";
 
 const helpText = `
 # How to configure Cargo to use the private registry?
@@ -73,8 +73,8 @@ const Help: FC = () => (
   <>
     <Grid container>
       <Grid item xs={3} />
-      <Grid item xs={6}>
-        <ReactMarkdown children={helpText} remarkPlugins={[remarkGfm]} />
+      <Grid item xs={6} sx={{ margin: 5 }}>
+        <Markdown markdown={helpText} />
       </Grid>
       <Grid item xs={3} />
     </Grid>
