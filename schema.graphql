@@ -44,7 +44,7 @@ type Mutation {
 
 type Query {
   crate(name: String!): CrateSummary!
-  crateVersion(name: String!, version: String): CrateVersion!
+  crateVersion(name: String!, version: String): CrateVersion
   crates(filter: String, limit: Int): [CrateSummary!]!
   myTokens: [Token!]!
   user(id: ID!): User

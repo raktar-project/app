@@ -69,7 +69,7 @@ export type MutationGenerateTokenArgs = {
 export type Query = {
   __typename?: 'Query';
   crate: CrateSummary;
-  crateVersion: CrateVersion;
+  crateVersion?: Maybe<CrateVersion>;
   crates: Array<CrateSummary>;
   myTokens: Array<Token>;
   user?: Maybe<User>;
@@ -119,7 +119,7 @@ export type CrateVersionQueryVariables = Exact<{
 }>;
 
 
-export type CrateVersionQuery = { __typename?: 'Query', crateVersion: { __typename?: 'CrateVersion', id: string, name: string, description?: string | null, version: string, readme?: string | null, repository?: string | null, crate: { __typename?: 'CrateSummary', versions: Array<string>, owners: Array<{ __typename?: 'User', id: string, login: string, givenName: string, familyName: string }> } } };
+export type CrateVersionQuery = { __typename?: 'Query', crateVersion?: { __typename?: 'CrateVersion', id: string, name: string, description?: string | null, version: string, readme?: string | null, repository?: string | null, crate: { __typename?: 'CrateSummary', versions: Array<string>, owners: Array<{ __typename?: 'User', id: string, login: string, givenName: string, familyName: string }> } } | null };
 
 export type CratesQueryVariables = Exact<{
   filter?: InputMaybe<Scalars['String']>;
