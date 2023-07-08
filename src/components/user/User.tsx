@@ -10,6 +10,7 @@ import {
   TableContainer,
   TableRow,
 } from "@mui/material";
+import NotFound from "../NotFound.tsx";
 
 interface UserProps {
   userId: string;
@@ -48,10 +49,10 @@ const User: FC<UserProps> = ({ userId }) => {
       </TableContainer>
     );
   } else if (data) {
-    return <div>User not found</div>;
+    return <NotFound message={`User ${userId} is not found.`} />;
   }
 
-  return <div>Unexpected state.</div>;
+  return null;
 };
 
 export default User;

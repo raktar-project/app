@@ -5,6 +5,7 @@ import { LinearProgress } from "@mui/material";
 import CrateReadme from "./CrateReadme.tsx";
 import Grid from "@mui/material/Grid";
 import CrateSidebar from "./CrateSidebar.tsx";
+import NotFound from "../NotFound.tsx";
 
 interface CrateProps {
   name: string;
@@ -42,7 +43,11 @@ export const Crate: FC<CrateProps> = ({ name, version }) => {
         </Grid>
       );
     } else {
-      return <div>Missing crate</div>;
+      const message =
+        version === undefined
+          ? `Crate ${name} is not found.`
+          : `Version ${version} for ${name} is not found.`;
+      return <NotFound message={message} />;
     }
   }
 
