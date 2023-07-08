@@ -5,6 +5,7 @@ import { LinearProgress } from "@mui/material";
 import CrateReadme from "./CrateReadme.tsx";
 import Grid from "@mui/material/Grid";
 import CrateSidebar from "./CrateSidebar.tsx";
+import NotFound from "../NotFound.tsx";
 
 interface CrateProps {
   name: string;
@@ -22,25 +23,33 @@ export const Crate: FC<CrateProps> = ({ name, version }) => {
   } else if (fetching) {
     return <LinearProgress />;
   } else if (data) {
-    return (
-      <Grid container sx={{ marginTop: 3 }} gap={5}>
-        <Grid item xs={2} />
-        <Grid item xs={6}>
-          {data.crateVersion.readme && <CrateReadme readme={data.crateVersion.readme} />}
+    if (data.crateVersion) {
+      return (
+        <Grid container sx={{ marginTop: 3 }} gap={5}>
+          <Grid item xs={2} />
+          <Grid item xs={6}>
+            {data.crateVersion.readme && <CrateReadme readme={data.crateVersion.readme} />}
+          </Grid>
+          <Grid item xs={2}>
+            <CrateSidebar
+              name={data.crateVersion.name}
+              version={data.crateVersion.version}
+              description={data.crateVersion.description || ""}
+              allVersions={data.crateVersion.crate.versions}
+              owners={data.crateVersion.crate.owners}
+            />
+          </Grid>
+          <Grid item xs={2} />
         </Grid>
-        <Grid item xs={2}>
-          <CrateSidebar
-            name={data.crateVersion.name}
-            version={data.crateVersion.version}
-            description={data.crateVersion.description || ""}
-            allVersions={data.crateVersion.crate.versions}
-            owners={data.crateVersion.crate.owners}
-          />
-        </Grid>
-        <Grid item xs={2} />
-      </Grid>
-    );
+      );
+    } else {
+      const message =
+        version === undefined
+          ? `Crate ${name} is not found.`
+          : `Version ${version} for ${name} is not found.`;
+      return <NotFound message={message} />;
+    }
   }
 
-  return <div>Unexpected state.</div>;
+  return null;
 };
