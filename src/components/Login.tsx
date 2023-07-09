@@ -8,7 +8,7 @@ const Login: FC = () => (
     <Grid item xs={4} />
     <Grid item xs={4}>
       <Button
-        onClick={() => Auth.federatedSignIn({ customProvider: "aws-sso" })}
+        onClick={() => Auth.federatedSignIn({ customProvider: "sso-provider" })}
         fullWidth
         variant="contained"
         size="large"
