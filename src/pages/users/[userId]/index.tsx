@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useParams } from "react-router-dom";
-import User from "./User.tsx";
+import User from "@components/user/User.tsx";
 import Grid from "@mui/material/Grid";
 
 const UserPage: FC = () => {

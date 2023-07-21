@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useParams } from "react-router-dom";
-import { Crate } from "./Crate.tsx";
+import { Crate } from "@components/crate/Crate";
 
 const CratePage: FC = () => {
   const { crateName } = useParams();
