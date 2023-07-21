@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useQuery } from "urql";
 
-import { CratesDocument } from "../generated/graphql.ts";
+import { CratesDocument } from "@generated/graphql";
 import {
   Button,
   CircularProgress,
