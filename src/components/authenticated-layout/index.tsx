@@ -1,9 +1,10 @@
 import { FC, useEffect, useState } from "react";
-import AppBar from "./AppBar.tsx";
 import { Outlet, useNavigate } from "react-router-dom";
 import { Auth } from "aws-amplify";
 
-const AuthenticatedLayout: FC = () => {
+import AppBar from "@components/appbar";
+
+const Index: FC = () => {
   const [, setUser] = useState<any>(null);
   const navigate = useNavigate();
 
@@ -27,4 +28,4 @@ const AuthenticatedLayout: FC = () => {
   );
 };
 
-export default AuthenticatedLayout;
+export default Index;

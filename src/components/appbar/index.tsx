@@ -10,8 +10,8 @@ import { Help, People, Settings } from "@mui/icons-material";
 import { Auth } from "aws-amplify";
 import { useNavigate } from "react-router-dom";
 
-import iconUrl from "../assets/logo-light.svg";
-import SearchBar from "./SearchBar.tsx";
+import iconUrl from "../../assets/logo-light.svg";
+import SearchBar from "./search-bar";
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

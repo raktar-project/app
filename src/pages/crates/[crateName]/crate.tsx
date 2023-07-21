@@ -1,11 +1,12 @@
 import { FC } from "react";
 import { useQuery } from "urql";
-import { CrateVersionDocument } from "../../generated/graphql.ts";
 import { LinearProgress } from "@mui/material";
-import CrateReadme from "./CrateReadme.tsx";
 import Grid from "@mui/material/Grid";
-import CrateSidebar from "./CrateSidebar.tsx";
-import NotFound from "../NotFound.tsx";
+
+import CrateReadme from "./readme";
+import CrateSidebar from "./sidebar";
+import NotFound from "@components/not-found";
+import { CrateVersionDocument } from "@generated/graphql";
 
 interface CrateProps {
   name: string;

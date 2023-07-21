@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { useQuery } from "urql";
 
-import { CratesDocument } from "../generated/graphql.ts";
 import {
   Button,
   CircularProgress,
@@ -14,6 +13,8 @@ import {
   TableRow,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+
+import { CratesDocument } from "@generated/graphql";
 
 const CratesList: FC = () => {
   const [{ data, error, fetching }] = useQuery({ query: CratesDocument, variables: { limit: 20 } });

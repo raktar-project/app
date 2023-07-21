@@ -5,17 +5,17 @@ import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider as UrqlProvider } from "urql";
 
-import awsExports from "./aws-exports.ts";
-import client from "./client.ts";
-import Login from "./components/Login.tsx";
-import AuthCallback from "./components/AuthCallback.tsx";
-import Home from "./components/Home.tsx";
-import AuthenticatedLayout from "./components/AuthenticatedLayout.tsx";
-import TokenManagement from "./components/TokenManagement.tsx";
-import CratePage from "./components/crate/CratePage.tsx";
-import Help from "./components/Help.tsx";
-import UserPage from "./components/user/UserPage.tsx";
-import UsersPage from "./components/user-directory/UsersPage.tsx";
+import awsExports from "./aws-exports";
+import client from "./client";
+import AuthCallback from "@components/auth-callback";
+import AuthenticatedLayout from "@components/authenticated-layout";
+import Crates from "@pages/crates";
+import Crate from "@pages//crates/[crateName]";
+import Help from "@pages/help";
+import Login from "@pages/login";
+import Tokens from "@pages/tokens";
+import Users from "@pages/users";
+import User from "@pages/users/[userId]";
 
 Amplify.configure(awsExports);
 
@@ -44,7 +44,7 @@ const App: FC = () => {
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: <Crates />,
         },
         {
           path: "/help",
@@ -52,19 +52,19 @@ const App: FC = () => {
         },
         {
           path: "/tokens",
-          element: <TokenManagement />,
+          element: <Tokens />,
         },
         {
           path: "/crates/:crateName/:version?",
-          element: <CratePage />,
+          element: <Crate />,
         },
         {
           path: "/users",
-          element: <UsersPage />,
+          element: <Users />,
         },
         {
           path: "/users/:userId",
-          element: <UserPage />,
+          element: <User />,
         },
       ],
     },

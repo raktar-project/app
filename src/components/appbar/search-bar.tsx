@@ -2,8 +2,8 @@ import { ChangeEvent, FC, useState } from "react";
 import { styled } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import { Autocomplete, InputAdornment, TextField } from "@mui/material";
-import { CratesDocument } from "../generated/graphql.ts";
-import client from "../client.ts";
+import { CratesDocument } from "@generated/graphql.ts";
+import client from "../../client.ts";
 import { useNavigate } from "react-router-dom";
 
 const StyledTextField = styled(TextField)(({ theme }) => ({

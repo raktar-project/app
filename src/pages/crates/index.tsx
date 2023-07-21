@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Grid from "@mui/material/Grid";
 
-import CratesList from "./CratesList.tsx";
+import CratesList from "./list";
 
 const Home: FC = () => {
   return (
