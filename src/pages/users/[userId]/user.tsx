@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { useQuery } from "urql";
-import { UserDocument } from "../../generated/graphql.ts";
 import {
   LinearProgress,
   Paper,
@@ -10,7 +9,9 @@ import {
   TableContainer,
   TableRow,
 } from "@mui/material";
-import NotFound from "../NotFound.tsx";
+
+import NotFound from "@components/NotFound";
+import { UserDocument } from "@generated/graphql";
 
 interface UserProps {
   userId: string;

@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useParams } from "react-router-dom";
+
 import { Crate } from "./crate";
 
 const CratePage: FC = () => {

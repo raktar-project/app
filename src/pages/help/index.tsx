@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import Grid from "@mui/material/Grid";
 
-import Markdown from "@components/Markdown.tsx";
+import Markdown from "@components/Markdown";
 
 const helpText = `
 # How to configure Cargo to use the private registry?

@@ -1,7 +1,8 @@
 import { FC } from "react";
 import { useParams } from "react-router-dom";
-import User from "@components/user/User.tsx";
 import Grid from "@mui/material/Grid";
+
+import User from "./user";
 
 const UserPage: FC = () => {
   const { userId } = useParams();

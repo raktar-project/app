@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { useMutation, useQuery } from "urql";
 
-import { DeleteTokenDocument, MyTokensDocument } from "@generated/graphql";
 import {
   Box,
   Button,
@@ -14,6 +13,8 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+
+import { DeleteTokenDocument, MyTokensDocument } from "@generated/graphql";
 
 const TokenList: FC = () => {
   const [{ data, error, fetching }] = useQuery({ query: MyTokensDocument });
