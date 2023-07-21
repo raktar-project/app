@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid";
 
 import CrateReadme from "./readme";
 import CrateSidebar from "./sidebar";
-import NotFound from "@components/NotFound.tsx";
+import NotFound from "@components/not-found";
 import { CrateVersionDocument } from "@generated/graphql";
 
 interface CrateProps {

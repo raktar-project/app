@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "@mui/material";
 
-import NotFound from "@components/NotFound";
+import NotFound from "@components/not-found";
 import { UserDocument } from "@generated/graphql";
 
 interface UserProps {

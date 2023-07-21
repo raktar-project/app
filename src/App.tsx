@@ -5,10 +5,10 @@ import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider as UrqlProvider } from "urql";
 
-import awsExports from "./aws-exports.ts";
-import client from "./client.ts";
-import AuthCallback from "@components/AuthCallback";
-import AuthenticatedLayout from "@components/AuthenticatedLayout";
+import awsExports from "./aws-exports";
+import client from "./client";
+import AuthCallback from "@components/auth-callback";
+import AuthenticatedLayout from "@components/authenticated-layout";
 import Crates from "@pages/crates";
 import Crate from "@pages//crates/[crateName]";
 import Help from "@pages/help";
