@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useMutation, useQuery } from "urql";
 
-import { DeleteTokenDocument, MyTokensDocument } from "../generated/graphql.ts";
+import { DeleteTokenDocument, MyTokensDocument } from "@generated/graphql";
 import {
   Box,
   Button,

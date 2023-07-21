@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Grid, Stack } from "@mui/material";
 
-import TokenGenerator from "@components/TokenGenerator";
-import TokenList from "@components/TokenList";
+import TokenGenerator from "./generator";
+import TokenList from "./list";
 
 const TokenManagement: FC = () => {
   return (

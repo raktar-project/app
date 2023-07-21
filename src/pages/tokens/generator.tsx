@@ -9,10 +9,11 @@ import {
   TextField,
 } from "@mui/material";
 import { useMutation } from "urql";
-import { GenerateTokenDocument } from "../generated/graphql.ts";
 import IconButton from "@mui/material/IconButton";
 import { ContentCopy } from "@mui/icons-material";
 import { Controller, useForm } from "react-hook-form";
+
+import { GenerateTokenDocument } from "@generated/graphql";
 
 interface FormValues {
   tokenName: string;
