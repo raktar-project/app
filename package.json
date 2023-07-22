@@ -9,6 +9,7 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prepare": "husky install",
+    "prettier": "prettier --check .",
     "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
