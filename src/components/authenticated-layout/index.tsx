@@ -4,7 +4,8 @@ import { Auth } from "aws-amplify";
 
 import AppBar from "@components/appbar";
 
-const Index: FC = () => {
+const AuthenticatedLayout: FC = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [, setUser] = useState<any>(null);
   const navigate = useNavigate();
 
@@ -28,4 +29,4 @@ const Index: FC = () => {
   );
 };
 
-export default Index;
+export default AuthenticatedLayout;
