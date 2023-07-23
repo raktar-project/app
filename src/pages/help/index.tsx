@@ -3,6 +3,7 @@ import { FC } from "react";
 import Grid from "@mui/material/Grid";
 
 import Markdown from "@components/markdown";
+import { Paper } from "@mui/material";
 
 const helpText = `
 # How to configure Cargo to use the private registry?
@@ -74,7 +75,9 @@ const Help: FC = () => (
     <Grid container>
       <Grid item xs={3} />
       <Grid item xs={6} sx={{ margin: 5 }}>
-        <Markdown markdown={helpText} />
+        <Paper sx={{ padding: 2 }}>
+          <Markdown markdown={helpText} />
+        </Paper>
       </Grid>
       <Grid item xs={3} />
     </Grid>

@@ -25,6 +25,9 @@ const customTheme = createTheme({
     primary: {
       main: "#5e6ca9",
     },
+    background: {
+      default: "#f2f4fc",
+    },
   },
 });
 
