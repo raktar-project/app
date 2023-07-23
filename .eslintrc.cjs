@@ -7,6 +7,13 @@ module.exports = {
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
+  ignorePatterns: [
+    "*.js",
+    "dist/*",
+    "node_modules/*",
+    "/src/generated/*",
+    "/infrastructure/cdk.out/*",
+  ],
   plugins: ["react-refresh"],
   rules: {
     "react-refresh/only-export-components": "warn",
