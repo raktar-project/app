@@ -23,38 +23,36 @@ const CrateSidebar: FC<CrateSidebarProps> = ({
   version,
   allVersions,
   owners,
-}) => {
-  return (
-    <Stack spacing={2}>
-      <Paper sx={{ padding: 2 }}>
-        <Stack>
-          <Typography variant="h5">{name}</Typography>
-          <Typography variant="subtitle1">{version}</Typography>
-          <Typography variant="body1">{description}</Typography>
-        </Stack>
-      </Paper>
-      <Paper sx={{ padding: 2 }}>
-        <Typography variant="h5">Versions</Typography>
-        <ul>
-          {allVersions.map((v) => (
-            <li key={v}>
-              <Link to={`/crates/${name}/${v}`}>{v}</Link>
-            </li>
-          ))}
-        </ul>
-      </Paper>
-      <Paper sx={{ padding: 2 }}>
-        <Typography variant="h5">Owners</Typography>
-        <ul>
-          {owners.map((user) => (
-            <li key={user.id}>
-              <Link to={`/users/${user.id}`}>{`${user.givenName} ${user.familyName}`}</Link>
-            </li>
-          ))}
-        </ul>
-      </Paper>
-    </Stack>
-  );
-};
+}) => (
+  <Stack spacing={2}>
+    <Paper sx={{ padding: 2 }}>
+      <Stack>
+        <Typography variant="h5">{name}</Typography>
+        <Typography variant="subtitle1">{version}</Typography>
+        <Typography variant="body1">{description}</Typography>
+      </Stack>
+    </Paper>
+    <Paper sx={{ padding: 2 }}>
+      <Typography variant="h5">Versions</Typography>
+      <ul>
+        {allVersions.map((v) => (
+          <li key={v}>
+            <Link to={`/crates/${name}/${v}`}>{v}</Link>
+          </li>
+        ))}
+      </ul>
+    </Paper>
+    <Paper sx={{ padding: 2 }}>
+      <Typography variant="h5">Owners</Typography>
+      <ul>
+        {owners.map((user) => (
+          <li key={user.id}>
+            <Link to={`/users/${user.id}`}>{`${user.givenName} ${user.familyName}`}</Link>
+          </li>
+        ))}
+      </ul>
+    </Paper>
+  </Stack>
+);
 
 export default CrateSidebar;
