@@ -12,7 +12,6 @@ import AuthenticatedLayout from "@components/authenticated-layout";
 import Crates from "@pages/crates";
 import Crate from "@pages//crates/[crateName]";
 import Help from "@pages/help";
-import Login from "@pages/login";
 import Tokens from "@pages/tokens";
 import Users from "@pages/users";
 import User from "@pages/users/[userId]";
@@ -33,10 +32,6 @@ const customTheme = createTheme({
 
 const App: FC = () => {
   const router = createBrowserRouter([
-    {
-      path: "/login",
-      element: <Login />,
-    },
     {
       path: "/cb",
       element: <AuthCallback />,
