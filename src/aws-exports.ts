@@ -1,6 +1,8 @@
 const appUrl =
   import.meta.env.VITE_APP_URL || `https://crates.${import.meta.env.VITE_HOSTED_ZONE_DOMAIN}`;
 
+const cognitoDomain = `auth.crates.${import.meta.env.VITE_HOSTED_ZONE_DOMAIN}`;
+
 export default {
   Auth: {
     region: import.meta.env.VITE_AWS_REGION,
@@ -10,7 +12,7 @@ export default {
     oauth: {
       redirectSignIn: `${appUrl}/cb`,
       redirectSignOut: appUrl,
-      domain: import.meta.env.VITE_COGNITO_DOMAIN,
+      domain: cognitoDomain,
       responseType: "code",
     },
   },
