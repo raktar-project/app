@@ -10,7 +10,7 @@ import { Help, People, Settings } from "@mui/icons-material";
 import { Auth } from "aws-amplify";
 import { useNavigate } from "react-router-dom";
 
-import iconUrl from "../../assets/logo-light.svg";
+import iconUrl from "../../assets/logo.svg";
 import SearchBar from "./search-bar";
 
 export default function PrimarySearchAppBar() {
@@ -46,7 +46,11 @@ export default function PrimarySearchAppBar() {
       <AppBar position="static">
         <Toolbar>
           <Button color="inherit" onClick={() => navigate("/")}>
-            <img src={iconUrl} alt="Raktar" style={{ maxWidth: "auto", maxHeight: "45px" }} />
+            <img
+              src={iconUrl}
+              alt="Raktar"
+              style={{ padding: "10px", maxWidth: "auto", maxHeight: "45px" }}
+            />
           </Button>
           <SearchBar />
           <Box sx={{ flexGrow: 1 }} />
